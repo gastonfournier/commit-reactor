@@ -3,6 +3,9 @@ name: React to external commit
 on:
   workflow_dispatch:
     inputs:
+        repository:
+            description: 'Repository name in the form of owner/repo'
+            required: true
         commit:
             description: 'Commit SHA'
             required: true
@@ -11,7 +14,7 @@ on:
             required: true
         message:
             description: 'Commit message'
-            required: true
+            required: false
 
 jobs:
     react:
@@ -19,7 +22,8 @@ jobs:
         steps:
             - uses: actions/checkout@v2
             - run: |
-                echo "${{ github.event.inputs.actor }}"
-                echo "${{ github.event.inputs.commit }}"
-                echo "${{ github.event.inputs.message }}"
+                echo "Repo: ${{ github.event.inputs.repository }}"
+                echo "Actor: ${{ github.event.inputs.actor }}"
+                echo "Commit SHA: ${{ github.event.inputs.commit }}"
+                echo "Message: ${{ github.event.inputs.message }}"
         
