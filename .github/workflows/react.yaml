@@ -2,7 +2,16 @@ name: React to external commit
 
 on:
   workflow_dispatch:
-  repository_dispatch:
+    inputs:
+        commit:
+            description: 'Commit SHA'
+            required: true
+        actor:
+            description: 'Actor'
+            required: true
+        message:
+            description: 'Commit message'
+            required: true
 
 jobs:
     react:
