@@ -25,5 +25,5 @@ jobs:
                 echo "Repo: ${{ github.event.inputs.repository }}"
                 echo "Actor: ${{ github.event.inputs.actor }}"
                 echo "Commit SHA: ${{ github.event.inputs.commit }}"
-                echo "Message: ${{ github.event.inputs.message }}"
+                echo Message: ${{ toJSON(github.event.inputs.message) }}
         
